@@ -1,5 +1,7 @@
-from bs4 import BeautifulSoup
+import os
 import requests
+
+from bs4 import BeautifulSoup
 response = requests.get("http://www.lycanroc.net/music/?g=pokeremixstudio")
 html = response.content
 
@@ -23,7 +25,9 @@ def download_files(download_urls):
         print(doc.__dict__)
         print(suffix.split("/"))
         file_name = suffix.split("/")[-1].replace("%20", "_")
-        with open(file_name, 'wb') as f:
+        os.mkdir("music")
+        full_path = f"music/{file_name}"
+        with open(full_path, 'wb') as f:
             f.write(doc.content)
 
 download_urls = create_download_urls()

@@ -2,7 +2,8 @@
 
 [PokeRemixStudio](https://www.youtube.com/c/PokeRemixStudio) is a nostalgic youtube channel that creates remixs of pokemon music.  The creator provides all their songs on [their website](https://www.lycanroc.net/music/?g=pokeremixstudio).  Downloading every song is a tedious task manually so I scripted it. 
 
-To run.
+To run, create and activate a virtual environment with python 3.6 or above.
+
 ```bash
 pip install -r requirements.txt
 python scraper.py

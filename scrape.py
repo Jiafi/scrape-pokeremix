@@ -22,13 +22,12 @@ def create_download_urls():
 def download_files(download_urls):
     for download_url, suffix in download_urls:
         doc = requests.get(download_url)
-        print(doc.__dict__)
-        print(suffix.split("/"))
         file_name = suffix.split("/")[-1].replace("%20", "_")
-        os.mkdir("music")
+        os.makedirs("music", exist_ok=True)
         full_path = f"music/{file_name}"
         with open(full_path, 'wb') as f:
             f.write(doc.content)
+        print(f"Wrote file={full_path}")
 
 download_urls = create_download_urls()
 download_files(download_urls)
